@@ -1,0 +1,53 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.welcome-header {
+  font-size: 14pt;
+  color: blue;
+  text-align: center;
+}
+
+.account-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+input{
+  border: 2px solid blue;
+  background-color: lightblue;
+  padding: 5px;
+  width: 80%;
+  border-radius: 20px;
+}
+
+button{
+  border: 2px solid black;
+  padding: 5px;
+  width: 40%;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+nav{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+}
+
+header{
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+}
