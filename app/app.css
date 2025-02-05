@@ -6,7 +6,7 @@
 
 .welcome-header {
   font-size: 14pt;
-  color: blue;
+  color: #1070C8;
   text-align: center;
 }
 
@@ -18,15 +18,16 @@
 }
 
 input{
-  border: 2px solid blue;
-  background-color: lightblue;
+  border: 2px solid #1070C8;
+  background-color: #96C2EA;
   padding: 5px;
   width: 80%;
   border-radius: 20px;
 }
 
 button{
-  border: 2px solid black;
+  border: 2px solid #1070C8;
+  background-color: #96C2EA;
   padding: 5px;
   width: 40%;
   font-weight: bold;
@@ -39,7 +40,7 @@ nav{
   left: 0;
   width: 100%;
   padding: 10px;
-  background-color: blue;
+  background-color: #1070C8;
   display: flex;
   justify-content: space-between;
 }
@@ -47,7 +48,7 @@ nav{
 header{
   margin-bottom: 20px;
   padding: 10px;
-  background-color: blue;
+  background-color: #1070C8;
   display: flex;
   justify-content: space-between;
 }
