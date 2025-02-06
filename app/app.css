@@ -10,6 +10,14 @@
   height: 100vh;
 }
 
+.layout-header {
+  background-color: #1070C8;
+  padding: 5px; 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .layout-content {
   flex: 1;
   display: flex;
