@@ -1,40 +1,26 @@
-*{
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.welcome-header {
-  font-size: 14pt;
-  color: #1070C8;
-  text-align: center;
-}
-
-.account-form{
+.layout-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  height: 100vh;
+}
+
+.layout-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start; 
+  padding: 10px; 
+  overflow-y: auto;
 }
 
-input{
-  border: 2px solid #1070C8;
-  background-color: #96C2EA;
-  padding: 5px;
-  width: 80%;
-  border-radius: 20px;
-}
-
-button{
-  border: 2px solid #1070C8;
-  background-color: #96C2EA;
-  padding: 5px;
-  width: 40%;
-  font-weight: bold;
-  border-radius: 20px;
-}
-
-nav{
+.layout-nav {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -42,13 +28,114 @@ nav{
   padding: 10px;
   background-color: #1070C8;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
 }
 
-header{
-  margin-bottom: 20px;
+.layout-nav a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout-nav a:hover {
+  color: #FFCD90;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.welcome-header {
+  font-size: 24px;
+  color: #1070C8;
+  text-align: center;
+  font-weight: bold;
+}
+
+.basic-info {
+  background-color: #96C2EA;
+  border: 2px solid #1070C8;
+  border-radius: 10px;
   padding: 10px;
-  background-color: #1070C8;
+  width: 90%;
+}
+
+.basic-header {
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #1070C8;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 20px;
+  border: 2px solid #1070C8;
+  background-color: #96C2EA;
+}
+
+.error-input {
+  color: gray;
+}
+
+.highlighted-input {
+  background-color: #FFCD90;
+}
+
+.error-icon {
+  color: red;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+.action-button,
+.create-profile-button {
+  border: 2px solid #1070C8;
+  background-color: #96C2EA;
+  padding: 10px;
+  width: 60%;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.action-button:hover,
+.create-profile-button:hover {
+  background-color: #1070C8;
+  color: white;
 }
