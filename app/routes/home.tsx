@@ -22,6 +22,7 @@ export default function Home() {
         <input type = "password" placeholder="Enter password" onChange={(evt) => setPassword(evt.currentTarget.value)}/>
         <input type = "password" placeholder="Confirm password" />
 
+        <button type="submit">Add budget now</button>
         <button type="submit"> Create account </button>
       </form>
     </main>
