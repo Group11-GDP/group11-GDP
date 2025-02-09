@@ -1,6 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
+*{
+  margin:0;
+  padding:0;
   box-sizing: border-box;
 }
 
@@ -8,6 +8,12 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.welcome-header {
+  font-size: 14pt;
+  color: #1070C8;
+  text-align: center;
 }
 
 .layout-header {
@@ -18,7 +24,7 @@
   align-items: center;
 }
 
-.layout-content {
+layout-content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -86,6 +92,83 @@
   border-radius: 10px;
 }
 
+.account-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+input{
+  border: 2px solid #1070C8;
+  background-color: #96C2EA;
+  padding: 5px;
+  width: 80%;
+  border-radius: 20px;
+}
+
+button{
+  border: 2px solid #1070C8;
+  background-color: #96C2EA;
+  padding: 5px;
+  width: 40%;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+nav{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #1070C8;
+  display: flex;
+  justify-content: space-between;
+}
+
+header{
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #1070C8;
+  display: flex;
+  justify-content: space-between;
+}
+
+.income-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.income-header {
+  font-size: 24px;
+  color: #1070C8;
+  text-align: center;
+  font-weight: bold;
+}
+
+.income-info,
+.income-regularity {
+  background-color: #96C2EA;
+  border: 2px solid #1070C8;
+  border-radius: 10px;
+  padding: 10px;
+  width: 90%;
+}
+
+.income-header-bar {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #1070C8;
+  padding: 8px;
+  border-radius: 10px;
+  text-align: center;
+}
+
 .input-group {
   display: flex;
   flex-direction: column;
@@ -98,7 +181,6 @@
   align-items: center;
   position: relative;
 }
-
 input {
   width: 100%;
   padding: 8px;
@@ -110,7 +192,6 @@ input {
 .error-input {
   color: gray;
 }
-
 .highlighted-input {
   background-color: #FFCD90;
 }
@@ -128,6 +209,32 @@ input {
   gap: 15px;
   width: 100%;
   align-items: center;
+}
+.input-field {
+  width: 100%;
+  padding: 8px;
+  border-radius: 20px;
+  border: 2px solid #1070C8;
+  background-color: #96C2EA;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 10px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.radio-input {
+  accent-color: #1070C8;
 }
 
 .action-button,
