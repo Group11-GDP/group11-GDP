@@ -10,11 +10,6 @@
   height: 100vh;
 }
 
-.welcome-header {
-  font-size: 14pt;
-  color: #1070C8;
-  text-align: center;
-}
 
 .layout-header {
   background-color: #1070C8;
@@ -253,4 +248,9 @@ input {
 .create-profile-button:hover {
   background-color: #1070C8;
   color: white;
+}
+
+.scroll-container{
+  max-height: 33rem;
+  overflow-y: auto;
 }
