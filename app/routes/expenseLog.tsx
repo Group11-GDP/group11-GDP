@@ -25,64 +25,57 @@ export default function AddExpense() {
             <h1 className="welcome-header">Add Expense</h1>
   
             <section className="basic-info">
-                <div className="basic-header">Expense Information</div>
-                <div className="input-group">
-                    <div>Title:</div>
-                    <div className="input-wrapper">
-                        <input
-                          type="text"
-                          placeholder="Expense Name"
-                          value={expenseName}
-                          onChange={(e) => setExpenseName(e.target.value)}
-                        />
-                    </div>
+              <div className="basic-header">Expense Information</div>
+              <div className="input-group">
+                Title:
+                  <input
+                    type="text"
+                    placeholder="Expense Name"
+                    value={expenseName}
+                    onChange={(e) => setExpenseName(e.target.value)}
+                  />
 
-                    <div>Date:</div>
-                    <div className="input-wrapper">
-                        <DatePicker
-                          selected={expenseDate}
-                          onChange={(expenseDate) => (expenseDate != null)? setExpenseDate(expenseDate) : new Date()}
-                        />
-                    </div>
+                Date:
+                  <DatePicker
+                  className="input-field"
+                    selected={expenseDate}
+                    onChange={(expenseDate) => (expenseDate != null)? setExpenseDate(expenseDate) : new Date()}
+                  />
 
-                    <div>Category:</div>
-                    <div className="input-wrapper" >
-                        <select
-                          key={expenseType}
-                          value={expenseType}
-                          
-                          onChange={(e) => setExpenseType(e.target.value)}
-                        >
-                          <option hidden={true}>Expense type</option>
-                            {types.map((type) => (
-                                <option key={type} value={type}>{type}</option>
-                            ))}
-                        </select>
-                    </div>
-                        
-                    <div>Notes:</div>
-                    <div className="input-wrapper">
-                        <textarea
-                          placeholder="Notes"
-                          value={notes}
-                          onChange={(e) => setNotes(e.target.value)}
-                        />
-                    </div>
+                Category:
+                  <select
+                    key={expenseType}
+                    value={expenseType}
+                    className="input-field"
+                    onChange={(e) => setExpenseType(e.target.value)}
+                  >
+                    <option hidden={true}>Expense type</option>
+                      {types.map((type) => (
+                          <option key={type} value={type}>{type}</option>
+                      ))}
+                  </select>
+                    
+                Notes:
+                  <textarea
+                    placeholder="Notes"
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    className="input-field"
+                  />
 
-                    <div>Frequency:</div>
-                    <div className="input-wrapper">
-                        <select
-                          value={frequency}
-                          onChange={(e) => setFrequency(e.target.value)}
-                        >
-                            <option key="One time" value="One time">One time</option>
-                            <option key="Daily" value="Daily">Daily</option>
-                            <option key="Weekly" value="Weekly">Weekly</option>
-                            <option key="Monthly" value="Monthly">Monthly</option>
-                            <option key="Annually" value="Annually">Annually</option>
-                        </select>
-                    </div>
-                </div>
+                Frequency:
+                  <select
+                    value={frequency}
+                    onChange={(e) => setFrequency(e.target.value)}
+                    className="input-field"
+                  >
+                      <option key="One time" value="One time">One time</option>
+                      <option key="Daily" value="Daily">Daily</option>
+                      <option key="Weekly" value="Weekly">Weekly</option>
+                      <option key="Monthly" value="Monthly">Monthly</option>
+                      <option key="Annually" value="Annually">Annually</option>
+                  </select>
+              </div>
             </section>
 
             <div className="button-group">
