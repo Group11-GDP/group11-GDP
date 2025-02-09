@@ -147,3 +147,8 @@ input {
   background-color: #1070C8;
   color: white;
 }
+
+.scroll-container{
+  max-height: 30.5rem;
+  overflow-y: auto;
+}
