@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+// import DatePicker from "react-datepicker";
 import { Form } from "react-router";
 
 
@@ -57,12 +57,12 @@ export default function AddExpense() {
                     }}
                   />
 
-                Date:
+                {/* Date:
                   <DatePicker
                   className="input-field"
                     selected={expenseDate}
                     onChange={(expenseDate) => (expenseDate != null)? setExpenseDate(expenseDate) : new Date()}
-                  />
+                  /> */}
 
                 Category:
                   <select
