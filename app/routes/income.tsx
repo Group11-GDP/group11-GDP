@@ -22,9 +22,15 @@ export default function IncomeLogger() {
         <div className="input-group">
           <input
             type="number"
+            min = "0"
             placeholder="€ 0"
             value={incomeName}
             onChange={(e) => setIncomeName(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "-" || e.key === "e") {
+                e.preventDefault();
+              }
+            }}
             className="input-field"
           />
           <input

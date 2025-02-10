@@ -30,9 +30,15 @@ export default function AddExpense() {
                 Total:
                   <input
                     type="number"
+                    min = "0"
                     placeholder="€ 0"
                     value={expenseName}
                     onChange={(e) => setExpenseName(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "-" || e.key === "e") {
+                        e.preventDefault();
+                      }
+                    }}
                   />
 
                 Date:
