@@ -27,10 +27,10 @@ export default function AddExpense() {
             <section className="basic-info">
               <div className="basic-header">Expense Information</div>
               <div className="input-group">
-                Title:
+                Total:
                   <input
-                    type="text"
-                    placeholder="Expense Name"
+                    type="number"
+                    placeholder="€ 0"
                     value={expenseName}
                     onChange={(e) => setExpenseName(e.target.value)}
                   />

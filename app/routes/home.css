@@ -1,0 +1,168 @@
+.home-container {
+  text-align: center;
+  background-color: white;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+}
+
+.chart-container {
+
+  background: white;
+  padding-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #e1e7ec;
+  width: 280px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.chart-text h2 {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 25px;
+}
+
+.chart-text p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+.category-breakdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0px;
+  border: 1px solid #ddd;
+  padding: 0px;
+  border-radius: 8px;
+  width: 180px;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+/* Style for the buttons */
+.grid-button {
+  background: #96c2ea;
+  border: 3px solid #1070c8;
+  border-radius: 15px;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+/* Style for button icons */
+.button-icon {
+  width: 40px;  /* Adjust size as needed */
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+/* Reduce spacing around the grid */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Notification Badge */
+.notification .badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: white;
+  color: #1070c8;
+  font-size: 14px;
+  font-weight: bold;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 3px solid #1070c8;
+}
+
+
+  
+  .grid-button:hover {
+    background: #75b0e6;
+  }
+  
+  .emoji {
+    font-size: 30px;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: white;
+    color: #1070c8;
+    font-size: 18px;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid #1070c8;
+  }
+  
+.category-breakdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 200px;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.category-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.category-name {
+  flex: 1;
+  font-size: 14px;
+  color: #7a7a7a;
+}
+
+.category-value {
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+}

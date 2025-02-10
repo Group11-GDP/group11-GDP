@@ -23,7 +23,7 @@ export default function Layout() {
             <a href="/income">
                 <LogIcon/>
             </a>
-            <a href ="/">
+            <a href ="/profile">
                 <ProfileIcon/>
             </a>
         </nav>

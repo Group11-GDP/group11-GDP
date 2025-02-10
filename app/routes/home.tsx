@@ -1,56 +1,84 @@
-import type { Route } from "./+types/home";
-import { useState } from "react";
+import React from "react";
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { useNavigate } from "react-router-dom";
+import AddExpenseIcon from "../icons/AddExpense.svg";
+import AddIncomeIcon from "../icons/AddIncome.svg";
+import ViewExpensesIcon from "../icons/ViewExpenses.svg";
+import ExportSummaryIcon from "../icons/ExportSummary.svg";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "Expense Tracker" },
-    { name: "description", content: "Welcome to your Expense Tracker!" },
-  ];
-}
+import "./home.css";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Home() {
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+
+  const chartData = {
+    labels: ["Income", "Expenses"],
+    datasets: [
+      {
+        data: [70000, 30000],
+        backgroundColor: ["#62B2FD", "#9BDFC4"],
+        borderWidth: 2,
+      },
+    ],
+  };
 
   return (
     <div className="home-container">
-      <h1 className="welcome-header">WELCOME TO YOUR EXPENSE TRACKER!</h1>
+      {/* Doughnut Chart */}
+      <div className="chart-container">
+        <Doughnut data={chartData} />
 
-      <section className="basic-info">
-        <div className="basic-header">
-          <span>Basic Information</span>
-          <span className="collapse-icon">▲</span>
+        <div className="chart-text">
+          <h2>Monthly Overview</h2>
+          <p>€40,000.00 saved</p>
         </div>
-
-        <div className="input-group">
-          <div className="input-wrapper">
-            <input type="text" placeholder="Username" className="error-input" />
-            <span className="error-icon">!</span>
-          </div>
-          <div className="input-wrapper">
-            <input type="email" placeholder="Email" className="error-input" />
-            <span className="error-icon">!</span>
-          </div>
-          <div className="input-wrapper">
-            <input
-              type="password"
-              placeholder="Password"
-              className="error-input highlighted-input"
-              onChange={(evt) => setPassword(evt.currentTarget.value)}
-            />
-            <span className="error-icon">!</span>
-          </div>
-          <div className="input-wrapper">
-            <input type="password" placeholder="Confirm Password" className="error-input" />
-            <span className="error-icon">!</span>
-          </div>
-        </div>
-      </section>
-
-      <div className="button-group">
-        <button className="action-button">Add budget now</button>
-        <button className="create-profile-button">Create Profile</button>
       </div>
+
+      {/* Category Breakdown */}
+      <div className="category-breakdown">
+        <div className="category-item">
+          <span className="category-dot" style={{ backgroundColor: "#62B2FD" }}></span>
+          <span className="category-name">Income</span>
+          <span className="category-value">€70,000.00</span>
+        </div>
+        <div className="category-item">
+          <span className="category-dot" style={{ backgroundColor: "#9BDFC4" }}></span>
+          <span className="category-name">Expenses</span>
+          <span className="category-value">€30,000.00</span>
+        </div>
+      </div>
+
+      {/* Action Buttons */}
+      <div className="button-grid">
+        {/* Add Expense */}
+        <button onClick={() => navigate("/expense")} className="grid-button">
+          <img src={AddExpenseIcon} alt="Add Expense" className="button-icon" />
+          <p>Add Expense</p>
+        </button>
+
+        {/* Add Income */}
+        <button onClick={() => navigate("/income")} className="grid-button">
+          <img src={AddIncomeIcon} alt="Add Income" className="button-icon" />
+          <p>Add Income</p>
+        </button>
+
+        {/* View Expenses */}
+        <button onClick={() => navigate("/expenses")} className="grid-button notification">
+          <img src={ViewExpensesIcon} alt="View Expenses" className="button-icon" />
+          <p>View Expenses</p>
+          {/* Notification Badge */}
+          <span className="badge">3</span>
+        </button>
+
+        {/* Export Summary */}
+        <button onClick={() => navigate("/summary")} className="grid-button">
+          <img src={ExportSummaryIcon} alt="Export Summary" className="button-icon" />
+          <p>Export Summary</p>
+        </button>
+    </div>
     </div>
   );
 }

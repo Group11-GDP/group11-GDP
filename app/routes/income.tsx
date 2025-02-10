@@ -21,8 +21,8 @@ export default function IncomeLogger() {
 
         <div className="input-group">
           <input
-            type="text"
-            placeholder="Income Name"
+            type="number"
+            placeholder="€ 0"
             value={incomeName}
             onChange={(e) => setIncomeName(e.target.value)}
             className="input-field"
