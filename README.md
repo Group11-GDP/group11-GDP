@@ -73,5 +73,5 @@ Endpoint	    Method	Description
 5️⃣ Click "Export Summary" to download a CSV file of all transactions.
 
 ## **To remove, or reset data delete finance.db (inside the backend folder) and restart the flask server.**
-rm finance.db
+rm finance.db  
 python app.py
