@@ -35,9 +35,9 @@ Data is stored **persistently** in an **SQLite database (`finance.db`)**.
 ### **Install Dependencies**
 Ensure you have **Python 3.8+** installed, then run:
 
-cd backend
-pip install -r requirements.txt
-python app.py
+cd backend  
+pip install -r requirements.txt  
+python app.py  
 
 The Flask backend should now be running at:
 http://127.0.0.1:5000
@@ -48,8 +48,8 @@ http://127.0.0.1:5000
 ### **Install Dependencies**
 Ensure Node.js 20+ is installed, then run:
 
-cd frontend
-npm install
+cd frontend  
+npm install  
 npm run dev
 
 ---
