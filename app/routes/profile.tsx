@@ -9,8 +9,15 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Profile() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const isUsernameInvalid = username.trim() === "";
+  const isEmailInvalid = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isPasswordInvalid = password.trim() === "" || password.length < 6;
+  const isConfirmPasswordInvalid = confirmPassword.trim() === "" || confirmPassword !== password;
 
   return (
     <div className="home-container">
@@ -24,25 +31,44 @@ export default function Profile() {
 
         <div className="input-group">
           <div className="input-wrapper">
-            <input type="text" placeholder="Username" className="error-input" />
-            <span className="error-icon">!</span>
+            <input
+              type="text"
+              placeholder="Username"
+              className={isUsernameInvalid ? "error-input" : ""}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            {isUsernameInvalid && <span className="error-icon">!</span>}
           </div>
           <div className="input-wrapper">
-            <input type="email" placeholder="Email" className="error-input" />
-            <span className="error-icon">!</span>
+            <input
+              type="email"
+              placeholder="Email"
+              className={isEmailInvalid ? "error-input" : ""}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {isEmailInvalid && <span className="error-icon">!</span>}
           </div>
           <div className="input-wrapper">
             <input
               type="password"
               placeholder="Password"
-              className="error-input highlighted-input"
-              onChange={(evt) => setPassword(evt.currentTarget.value)}
+              className={isPasswordInvalid ? "error-input highlighted-input" : ""}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <span className="error-icon">!</span>
+            {isPasswordInvalid && <span className="error-icon">!</span>}
           </div>
           <div className="input-wrapper">
-            <input type="password" placeholder="Confirm Password" className="error-input" />
-            <span className="error-icon">!</span>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              className={isConfirmPasswordInvalid ? "error-input" : ""}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            {isConfirmPasswordInvalid && <span className="error-icon">!</span>}
           </div>
         </div>
       </section>

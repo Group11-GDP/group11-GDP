@@ -4,20 +4,19 @@ import HomeIcon from "~/icons/HomeIcon"
 import ProfileIcon from "~/icons/ProfileIcon"
 import ReturnIcon from "~/icons/ReturnIcon"
 import LogIcon from "~/icons/LogIcon"
-import { Link } from "react-router-dom";
 
 export default function Layout() {
     return <>
         <header>
-        <a href ="/">
+            <a href ="/">
                 <ReturnIcon/>
             </a>
         </header>
         <Outlet/>
         <nav>
-            <Link to="/"> 
-                <HomeIcon /> 
-            </Link>
+            <a href ="/">
+                <HomeIcon/>
+            </a>
             <a href="/expense">
                 <ExpenseIcon/>
             </a>

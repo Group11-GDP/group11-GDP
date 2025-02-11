@@ -12,7 +12,6 @@ import ExportSummaryIcon from "../icons/ExportSummary.svg";
 import "./home.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
-
 export default function Home() {
   const navigate = useNavigate();
   const [summary, setSummary] = useState({ total_income: 0, total_expense: 0, savings: 0 });
@@ -73,6 +72,17 @@ export default function Home() {
     ],
   };
 
+  const chartData = {
+    labels: ["Income", "Expenses"],
+    datasets: [
+      {
+        data: [totalMonthlyIncome, totalMonthlyExpenses],
+        backgroundColor: ["#62B2FD", "#9BDFC4"],
+        borderWidth: 2,
+      },
+    ],
+  };
+  
   return (
     <div className="home-container">
       {/* Doughnut Chart */}
@@ -110,6 +120,7 @@ export default function Home() {
         <div className="chart-text">
           <h2>Monthly Overview</h2>
           <p>€{summary.savings?.toLocaleString() || "0"} saved</p>
+
         </div>
       </div>
 

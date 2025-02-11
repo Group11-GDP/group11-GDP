@@ -1,6 +1,6 @@
-*{
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -19,7 +19,7 @@
   align-items: center;
 }
 
-layout-content {
+.layout-content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -123,11 +123,16 @@ nav{
 }
 
 header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   margin-bottom: 20px;
   padding: 10px;
   background-color: #1070C8;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .income-container {
@@ -187,15 +192,17 @@ input {
 .error-input {
   color: gray;
 }
-.highlighted-input {
-  background-color: #FFCD90;
-}
 
 .error-icon {
   color: red;
   font-weight: bold;
   position: absolute;
   right: 10px;
+  visibility: visible;
+}
+
+.input-wrapper .error-icon.hidden {
+  visibility: hidden;
 }
 
 .button-group {
@@ -207,6 +214,9 @@ input {
 }
 .input-field {
   width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 35px;
   padding: 8px;
   border-radius: 20px;
   border: 2px solid #1070C8;
@@ -251,10 +261,11 @@ input {
 }
 
 .scroll-container{
-  max-height: 80%;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  max-height: 100%;
   overflow-y: auto;
 }
-
 /* New styles for camera display and controls */
 .camera-container {
   display: flex;
