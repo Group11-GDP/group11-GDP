@@ -266,3 +266,40 @@ input {
   max-height: 100%;
   overflow-y: auto;
 }
+/* New styles for camera display and controls */
+.camera-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.camera-video {
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #1070C8;
+  border-radius: 10px;
+}
+
+.camera-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.captured-photo {
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #1070C8;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.photo-preview h3 {
+  margin-top: 10px;
+  color: #1070C8;
+  text-align: center;
+}

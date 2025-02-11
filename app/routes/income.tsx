@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function IncomeLogger() {
-  const [incomeName, setIncomeName] = useState("");
+  const [incomeAmount, setIncomeAmount] = useState<number>(0);
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("Salary");
   const [notes, setNotes] = useState("");
@@ -9,6 +9,36 @@ export default function IncomeLogger() {
 
   const categories = ["Salary", "Freelance", "Investments", "Other"];
   const frequencies = ["One time", "Daily", "Weekly", "Monthly", "Annually"];
+
+  const handleSubmit = async () => {
+    if (incomeAmount <= 0) {
+      alert("Please enter a valid income amount.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/income", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: incomeAmount,
+          date: date,
+          category: category,
+          notes: notes,
+          frequency: frequency,
+        }),
+      });
+
+      if (response.ok) {
+        alert("Income added successfully!");
+      } else {
+        alert("Error adding income.");
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      alert("Failed to connect to the server.");
+    }
+  };
 
   return (
     <div className="income-container">
@@ -22,10 +52,10 @@ export default function IncomeLogger() {
         <div className="input-group">
           <input
             type="number"
-            min = "0"
+            min="0"
             placeholder="€ 0"
-            value={incomeName}
-            onChange={(e) => setIncomeName(e.target.value)}
+            value={incomeAmount}
+            onChange={(e) => setIncomeAmount(Number(e.target.value))}
             onKeyDown={(e) => {
               if (e.key === "-" || e.key === "e") {
                 e.preventDefault();
@@ -81,7 +111,9 @@ export default function IncomeLogger() {
       </section>
 
       <div className="button-group">
-        <button className="action-button">Add Income</button>
+        <button className="action-button" onClick={handleSubmit}>
+          Add Income
+        </button>
       </div>
     </div>
   );

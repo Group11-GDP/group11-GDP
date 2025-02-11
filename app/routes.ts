@@ -8,3 +8,4 @@ export default [
         route("profile", "routes/profile.tsx"),
     ])
 ] satisfies RouteConfig;
+
