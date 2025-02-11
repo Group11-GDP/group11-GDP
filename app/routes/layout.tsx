@@ -8,7 +8,7 @@ import LogIcon from "~/icons/LogIcon"
 export default function Layout() {
     return <>
         <header>
-        <a href ="/">
+            <a href ="/">
                 <ReturnIcon/>
             </a>
         </header>

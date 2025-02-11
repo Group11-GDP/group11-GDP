@@ -39,13 +39,14 @@ export default function AddExpense() {
                         e.preventDefault();
                       }
                     }}
+                    className="input-field"
                   />
 
                 Date:
                   <DatePicker
-                  className="input-field"
                     selected={expenseDate}
                     onChange={(expenseDate) => (expenseDate != null)? setExpenseDate(expenseDate) : new Date()}
+                    className="input-field"
                   />
 
                 Category:
