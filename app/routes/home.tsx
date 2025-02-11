@@ -72,17 +72,6 @@ export default function Home() {
     ],
   };
 
-  const chartData = {
-    labels: ["Income", "Expenses"],
-    datasets: [
-      {
-        data: [totalMonthlyIncome, totalMonthlyExpenses],
-        backgroundColor: ["#62B2FD", "#9BDFC4"],
-        borderWidth: 2,
-      },
-    ],
-  };
-  
   return (
     <div className="home-container">
       {/* Doughnut Chart */}
