@@ -125,11 +125,12 @@ export default function AddExpense() {
               }}
             />
 
-             
+             Date:
             <DatePicker
               className="input-field"
               selected={expenseDate}
               onChange={(date) => (date != null ? setExpenseDate(date) : new Date())}
+              dateFormat="dd/MM/YYYY"
             />
 
             Category:
