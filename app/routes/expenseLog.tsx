@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-import { Form } from "react-router";
 
 export default function AddExpense() {
   const [expenseAmount, setExpenseAmount] = useState<number>(0);
@@ -11,9 +10,11 @@ export default function AddExpense() {
   const [notes, setNotes] = useState("");
   const [frequency, setFrequency] = useState("One time");
 
+  // Camera state
   const [cameraActive, setCameraActive] = useState(false);
   const [facingMode, setFacingMode] = useState<"user" | "environment">("user");
   const [capturedPhoto, setCapturedPhoto] = useState<string | null>(null);
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
 
@@ -57,15 +58,10 @@ export default function AddExpense() {
     }
   };
 
-  useEffect(() => {
-    if (cameraActive && videoRef.current && streamRef.current) {
-      videoRef.current.srcObject = streamRef.current;
-      videoRef.current.play();
-    }
-  }, [cameraActive]);
-
   const handleOpenCamera = () => {
+    // Reset any captured photo
     setCapturedPhoto(null);
+    // Start camera with the current facing mode
     startCamera(facingMode);
   };
 
@@ -81,20 +77,22 @@ export default function AddExpense() {
   };
 
   const handleSwitchCamera = async () => {
-    const newMode: "user" | "environment" = facingMode === "user" ? "environment" : "user";
-    if (cameraActive) {
-      handleStopCamera();
-    }
+    const newMode = facingMode === "user" ? "environment" : "user";
+    // Stop current camera
+    handleStopCamera();
+    // Set new facing mode and restart camera
     setFacingMode(newMode);
     startCamera(newMode);
   };
 
   const handleTakePhoto = () => {
     if (!videoRef.current) return;
+
     const video = videoRef.current;
     const canvas = document.createElement("canvas");
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
+
     const ctx = canvas.getContext("2d");
     if (ctx) {
       ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -102,6 +100,13 @@ export default function AddExpense() {
       setCapturedPhoto(dataUrl);
     }
   };
+
+  useEffect(() => {
+    if (cameraActive && videoRef.current && streamRef.current) {
+      videoRef.current.srcObject = streamRef.current;
+      videoRef.current.play();
+    }
+  }, [cameraActive]);
 
   return (
     <div className="scroll-container">
@@ -125,7 +130,6 @@ export default function AddExpense() {
               }}
             />
 
-             
             <DatePicker
               className="input-field"
               selected={expenseDate}
@@ -161,21 +165,11 @@ export default function AddExpense() {
               onChange={(e) => setFrequency(e.target.value)}
               className="input-field"
             >
-              <option key="One time" value="One time">
-                One time
-              </option>
-              <option key="Daily" value="Daily">
-                Daily
-              </option>
-              <option key="Weekly" value="Weekly">
-                Weekly
-              </option>
-              <option key="Monthly" value="Monthly">
-                Monthly
-              </option>
-              <option key="Annually" value="Annually">
-                Annually
-              </option>
+              <option value="One time">One time</option>
+              <option value="Daily">Daily</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Monthly">Monthly</option>
+              <option value="Annually">Annually</option>
             </select>
           </div>
         </section>
@@ -185,41 +179,57 @@ export default function AddExpense() {
             Add Expense
           </button>
 
-          {/* Camera control buttons */}
+          {/* Camera open button */}
           <button type="button" className="action-button" onClick={handleOpenCamera}>
             Open Camera
           </button>
-
-          {cameraActive && (
-            <div className="camera-container">
-              <video
-                ref={videoRef}
-                className="camera-video"
-                playsInline
-                autoPlay
-              />
-              <div className="camera-controls">
-                <button type="button" className="action-button" onClick={handleSwitchCamera}>
-                  Switch Camera
-                </button>
-                <button type="button" className="action-button" onClick={handleTakePhoto}>
-                  Take Photo
-                </button>
-                <button type="button" className="action-button" onClick={handleStopCamera}>
-                  Stop Camera
-                </button>
-              </div>
-              {/* Display the captured photo */}
-              {capturedPhoto && (
-                <div className="photo-preview">
-                  <h3>Captured Photo:</h3>
-                  <img src={capturedPhoto} alt="Captured" className="captured-photo" />
-                </div>
-              )}
-            </div>
-          )}
         </div>
       </main>
+
+      {/* 
+        Camera Overlay:
+        Shows up when "cameraActive" is true.
+        Occupies full screen, with 3/4 area for the video or captured photo.
+      */}
+      {cameraActive && (
+        <div className="camera-overlay">
+          <div className="camera-header">
+            <button type="button" className="close-button" onClick={handleStopCamera}>
+              X
+            </button>
+            <button type="button" className="action-button" onClick={handleSwitchCamera}>
+              Switch Camera
+            </button>
+          </div>
+
+          {/* The video feed (3/4 of the screen) */}
+          {!capturedPhoto && (
+            <video ref={videoRef} className="camera-video" playsInline autoPlay />
+          )}
+
+          {/* If a photo is captured, show it at the same scale (3/4) */}
+          {capturedPhoto && (
+            <img src={capturedPhoto} alt="Captured" className="camera-photo" />
+          )}
+
+          <div className="camera-controls-bottom">
+            {!capturedPhoto && (
+              <button type="button" className="action-button" onClick={handleTakePhoto}>
+                Take Photo
+              </button>
+            )}
+            {capturedPhoto && (
+              <button
+                type="button"
+                className="action-button"
+                onClick={() => setCapturedPhoto(null)}
+              >
+                Retake
+              </button>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
