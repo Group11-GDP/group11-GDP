@@ -59,9 +59,7 @@ export default function AddExpense() {
   };
 
   const handleOpenCamera = () => {
-    // Reset any captured photo
     setCapturedPhoto(null);
-    // Start camera with the current facing mode
     startCamera(facingMode);
   };
 
@@ -78,26 +76,56 @@ export default function AddExpense() {
 
   const handleSwitchCamera = async () => {
     const newMode = facingMode === "user" ? "environment" : "user";
-    // Stop current camera
     handleStopCamera();
-    // Set new facing mode and restart camera
     setFacingMode(newMode);
     startCamera(newMode);
   };
 
-  const handleTakePhoto = () => {
+  const handleTakePhoto = async () => {
     if (!videoRef.current) return;
 
     const video = videoRef.current;
     const canvas = document.createElement("canvas");
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-
     const ctx = canvas.getContext("2d");
+
     if (ctx) {
+      // Draw the current video frame to the canvas
       ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-      const dataUrl = canvas.toDataURL("image/png");
+      // Convert the image to JPEG instead of PNG
+      const dataUrl = canvas.toDataURL("image/jpeg");
       setCapturedPhoto(dataUrl);
+      
+      // Stop the camera once the photo is captured
+      handleStopCamera();
+
+      // Convert data URL to blob
+      const res = await fetch(dataUrl);
+      const blob = await res.blob();
+
+      // Wrap the blob in a File object
+      const file = new File([blob], `receipt_${Date.now()}.jpeg`, { type: "image/jpeg" });
+
+      // Prepare the FormData with the file
+      const formData = new FormData();
+      formData.append("receipts", file);
+
+      // Upload the file to your backend. The backend should handle
+      // saving it in a folder named "receipt"
+      try {
+        const uploadResponse = await fetch("http://localhost:5000/uploadReceipt", {
+          method: "POST",
+          body: formData,
+        });
+        if (uploadResponse.ok) {
+          console.log("Receipt saved successfully.");
+        } else {
+          console.error("Error saving receipt.");
+        }
+      } catch (error) {
+        console.error("Upload error:", error);
+      }
     }
   };
 
@@ -179,18 +207,13 @@ export default function AddExpense() {
             Add Expense
           </button>
 
-          {/* Camera open button */}
+          {/* Open Camera button */}
           <button type="button" className="action-button" onClick={handleOpenCamera}>
             Open Camera
           </button>
         </div>
       </main>
 
-      {/* 
-        Camera Overlay:
-        Shows up when "cameraActive" is true.
-        Occupies full screen, with 3/4 area for the video or captured photo.
-      */}
       {cameraActive && (
         <div className="camera-overlay">
           <div className="camera-header">
@@ -202,12 +225,10 @@ export default function AddExpense() {
             </button>
           </div>
 
-          {/* The video feed (3/4 of the screen) */}
+          {/* Display video feed or captured photo */}
           {!capturedPhoto && (
             <video ref={videoRef} className="camera-video" playsInline autoPlay />
           )}
-
-          {/* If a photo is captured, show it at the same scale (3/4) */}
           {capturedPhoto && (
             <img src={capturedPhoto} alt="Captured" className="camera-photo" />
           )}

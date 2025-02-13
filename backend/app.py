@@ -2,6 +2,10 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from datetime import datetime
+from mindee import Client, PredictResponse, product
+import os
+from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
 CORS(app)  
@@ -89,6 +93,36 @@ def summary():
     total_expense = db.session.query(db.func.sum(Expense.amount)).scalar() or 0
     savings = total_income - total_expense
     return jsonify({'total_income': total_income, 'total_expense': total_expense, 'savings': savings})
+
+
+@app.route('/uploadReceipt', methods=['POST'])
+def upload_receipt():
+    if 'receipts' not in request.files:
+        return jsonify({"error": "No file part in the request"}), 400
+
+    file = request.files['receipts']
+    if file.filename == "":
+        return jsonify({"error": "No file selected"}), 400
+
+    # Sanitize the filename and save it to the "receipt" folder
+    filename = secure_filename(file.filename)
+    file_path = os.path.join("receipt", filename)
+    file.save(file_path)
+
+    try:
+        # Process the file using Mindee
+        mindee_client = Client(api_key="c0d20a68372d7cb7ce9111cdecc41d7c")
+        input_doc = mindee_client.source_from_path(file_path)
+        result: PredictResponse = mindee_client.parse(product.ReceiptV5, input_doc)
+
+        print(result.document)
+        return jsonify({
+            "message": "Receipt processed successfully",
+            "document": str(result.document)
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
