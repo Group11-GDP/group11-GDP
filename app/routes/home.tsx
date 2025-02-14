@@ -127,7 +127,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Action Buttons */}
       <div className="button-grid">
         <button onClick={() => navigate("/expense")} className="grid-button">
           <img src={AddExpenseIcon} alt="Add Expense" className="button-icon" />

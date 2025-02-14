@@ -4,54 +4,72 @@
   box-sizing: border-box;
 }
 
+/* Base font-size. Adjust this up or down to make everything proportionally bigger or smaller. */
+html {
+  font-size: 0px; /* You can tweak this as desired */
+}
+
+/* Container */
 .layout-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  max-height: 100px; /* let content expand if needed */
+  margin: 0;
+  padding: 0;
+  /* An optional global font-size can also go here, e.g. font-size: 0.9rem; */
 }
 
-
+/* Header */
 .layout-header {
   background-color: #1070C8;
-  padding: 5px; 
+  padding: 0.5rem; /* smaller than 5px, scales with font-size */
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
+/* Content Area */
 .layout-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; 
-  padding: 10px; 
+  justify-content: flex-start;
+  padding: 1rem; /* smaller overall spacing that scales on all screens */
   overflow-y: auto;
 }
 
+/* Bottom Navigation */
 .layout-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 10px;
+  padding: 0.5rem;
   background-color: #1070C8;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+/* Nav Links */
 .layout-nav a {
   color: white;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Optionally make the text smaller (relative to html's font-size) */
+  font-size: 0.9rem; 
+  /* add a bit of padding for tap targets on mobile if needed */
+  padding: 0.5rem;
 }
 
+/* Hover state */
 .layout-nav a:hover {
   color: #FFCD90;
 }
+
 
 .home-container {
   display: flex;
@@ -266,40 +284,54 @@ input {
   max-height: 100%;
   overflow-y: auto;
 }
-/* New styles for camera display and controls */
-.camera-container {
+.camera-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); 
+  z-index: 9999;                      
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.camera-video {
-  width: 100%;
-  max-width: 400px;
-  border: 2px solid #1070C8;
-  border-radius: 10px;
-}
-
-.camera-controls {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  flex-wrap: wrap;
   justify-content: center;
 }
 
-.captured-photo {
-  width: 100%;
-  max-width: 400px;
-  border: 2px solid #1070C8;
-  border-radius: 10px;
-  margin-top: 10px;
+.camera-header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.photo-preview h3 {
-  margin-top: 10px;
-  color: #1070C8;
-  text-align: center;
+.close-button {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
+
+.camera-video,
+.camera-photo {
+  width: 75%;
+  max-height: 75%;
+  object-fit: cover;
+  border: 2px solid #1070C8;
+  border-radius: 10px;
+}
+
+.camera-controls-bottom {
+  margin-top: 1rem;
+  display: flex;
+  gap: 20px;
+}
+
+.camera-container {
+  display: none;
+}
+

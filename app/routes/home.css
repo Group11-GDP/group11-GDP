@@ -71,7 +71,7 @@
 
 /* Style for button icons */
 .button-icon {
-  width: 40px;  /* Adjust size as needed */
+  width: 40px;  
   height: 40px;
   margin-bottom: 5px;
 }
@@ -101,7 +101,6 @@
   border-radius: 50%;
   border: 3px solid #1070c8;
 }
-
 
   
   .grid-button:hover {
