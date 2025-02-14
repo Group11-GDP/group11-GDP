@@ -6,7 +6,7 @@
 
 /* Base font-size. Adjust this up or down to make everything proportionally bigger or smaller. */
 html {
-  font-size: 0px; /* You can tweak this as desired */
+  font-size: 16px;
 }
 
 /* Container */
