@@ -4,42 +4,36 @@
   box-sizing: border-box;
 }
 
-/* Base font-size. Adjust this up or down to make everything proportionally bigger or smaller. */
 html {
   font-size: 16px;
 }
 
-/* Container */
 .layout-container {
   display: flex;
   flex-direction: column;
-  max-height: 100px; /* let content expand if needed */
+  max-height: 100px; 
   margin: 0;
   padding: 0;
-  /* An optional global font-size can also go here, e.g. font-size: 0.9rem; */
 }
 
-/* Header */
 .layout-header {
   background-color: #1070C8;
-  padding: 0.5rem; /* smaller than 5px, scales with font-size */
+  padding: 0.5rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-/* Content Area */
 .layout-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 1rem; /* smaller overall spacing that scales on all screens */
+  padding: 1rem; 
   overflow-y: auto;
 }
 
-/* Bottom Navigation */
 .layout-nav {
   position: fixed;
   bottom: 0;
@@ -52,20 +46,16 @@ html {
   align-items: center;
 }
 
-/* Nav Links */
 .layout-nav a {
   color: white;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Optionally make the text smaller (relative to html's font-size) */
   font-size: 0.9rem; 
-  /* add a bit of padding for tap targets on mobile if needed */
   padding: 0.5rem;
 }
 
-/* Hover state */
 .layout-nav a:hover {
   color: #FFCD90;
 }
@@ -141,9 +131,6 @@ nav{
 }
 
 header{
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   margin-bottom: 20px;
   padding: 10px;
@@ -279,7 +266,6 @@ input {
 }
 
 .scroll-container{
-  padding-top: 50px;
   padding-bottom: 100px;
   max-height: 100%;
   overflow-y: auto;
