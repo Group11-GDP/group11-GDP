@@ -8,18 +8,20 @@ import LogIcon from "~/icons/LogIcon";
 
 export default function Layout() {
   return (
-    <>
-      <header>
+    <div className="layout-container">
+      <header className="layout-header">
         <Link to="/">
           <ReturnIcon />
         </Link>
       </header>
 
-      <ProtectedRoute>
-        <Outlet />
-      </ProtectedRoute>
+      <div className="scroll-container">
+        <ProtectedRoute>
+          <Outlet />
+        </ProtectedRoute>
+      </div>
 
-      <nav>
+      <nav className="nav">
         <Link to="/home">
           <HomeIcon />
         </Link>
@@ -33,6 +35,6 @@ export default function Layout() {
           <ProfileIcon />
         </Link>
       </nav>
-    </>
+    </div>
   );
 }

@@ -137,7 +137,7 @@ export default function AddExpense() {
   }, [cameraActive]);
 
   return (
-    <div className="scroll-container">
+    <div>
       <main className="home-container">
         <h1 className="welcome-header">Add Expense</h1>
 
