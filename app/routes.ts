@@ -1,4 +1,3 @@
-// routes.ts
 import { type RouteConfig, index, layout, route } from "@react-router/dev/routes";
 
 export default [
