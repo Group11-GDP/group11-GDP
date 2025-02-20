@@ -1,7 +1,8 @@
-import type { Route } from "./+types/home";
+// profile.tsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({}: any) {
   return [
     { title: "Expense Tracker" },
     { name: "description", content: "Welcome to your Expense Tracker!" },
@@ -13,11 +14,23 @@ export default function Profile() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
   const isUsernameInvalid = username.trim() === "";
   const isEmailInvalid = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const isPasswordInvalid = password.trim() === "" || password.length < 6;
   const isConfirmPasswordInvalid = confirmPassword.trim() === "" || confirmPassword !== password;
+
+  const handleCreateProfile = () => {
+    if (isUsernameInvalid || isEmailInvalid || isPasswordInvalid || isConfirmPasswordInvalid) {
+      alert("Please fill in all fields correctly.");
+      return;
+    }
+    
+    localStorage.setItem("hasProfile", "true");
+    
+    navigate("/home");
+  };
 
   return (
     <div className="home-container">
@@ -75,7 +88,9 @@ export default function Profile() {
 
       <div className="button-group">
         <button className="action-button">Add budget now</button>
-        <button className="create-profile-button">Create Profile</button>
+        <button className="create-profile-button" onClick={handleCreateProfile}>
+          Create Profile
+        </button>
       </div>
     </div>
   );
