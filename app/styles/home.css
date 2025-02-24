@@ -1,0 +1,160 @@
+/* General Page Styles */r
+html, body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure full height minus bottom padding */
+.home-layout-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 6vh); /* Account for 2vh padding at the bottom */
+  margin-top: 5vh; /* Keep 1vh space from the top */
+}
+
+/* Scrollable content area */
+.home-scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 2vh; /* Prevent content from touching the bottom */
+}
+
+/* Main Home Container */
+.home-container {
+  max-width: 600px;
+  margin: 1vh auto 0;
+  margin-top: 5vh;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Chart Container (Slightly Bigger) */
+/* Ensure the chart doesn't resize on screen changes */
+.home-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 280px; /* Fixed chart container height */
+}
+
+/* Wrapper to enforce fixed size */
+.home-chart-wrapper {
+  width: 250px; /* Fixed width */
+  height: 250px; /* Fixed height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.home-chart-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.home-chart-text h2 {
+  font-size: 22px; /* Slightly increased font size */
+  font-weight: bold;
+}
+
+.home-chart-text p {
+  font-size: 17px;
+  color: #666;
+}
+
+/* Category Breakdown */
+.home-category-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.home-category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-category-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.home-category-name {
+  flex-grow: 1;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.home-category-value {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Button Grid */
+.home-button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.home-grid-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; /* Slightly bigger buttons */
+  background: #1070C8;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 15px; /* Slightly bigger text */
+  font-weight: bold;
+  color: #fff; /* Made text color white for better contrast */
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  position: relative;
+}
+
+.home-grid-button:hover {
+  background: #0056b3; /* Darker blue hover effect */
+}
+
+.home-button-icon {
+  width: 42px; /* Slightly bigger icons */
+  height: 42px;
+  margin-bottom: 5px;
+}
+
+/* Notification Badge */
+.home-notification {
+  position: relative;
+}
+
+.home-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 5px 9px;
+  min-width: 22px;
+  text-align: center;
+}

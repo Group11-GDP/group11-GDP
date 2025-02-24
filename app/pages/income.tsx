@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../styles/income.css";
 
 export default function IncomeLogger() {
   const [incomeAmount, setIncomeAmount] = useState<number>(0);
@@ -49,7 +50,7 @@ export default function IncomeLogger() {
           <span>Income Information</span>
         </div>
 
-        <div className="input-group">
+        <div className="income-input-group">
           <input
             type="number"
             min="0"
@@ -61,18 +62,18 @@ export default function IncomeLogger() {
                 e.preventDefault();
               }
             }}
-            className="input-field"
+            className="income-input-field"
           />
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="input-field"
+            className="income-input-field"
           />
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="input-field"
+            className="income-input-field"
           >
             {categories.map((cat) => (
               <option key={cat} value={cat}>
@@ -85,7 +86,7 @@ export default function IncomeLogger() {
             placeholder="Notes"
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-            className="input-field"
+            className="income-input-field"
           />
         </div>
       </section>
@@ -94,15 +95,15 @@ export default function IncomeLogger() {
         <div className="income-header-bar">
           <span>Is it Regular?</span>
         </div>
-        <div className="radio-group">
+        <div className="income-radio-group">
           {frequencies.map((freq) => (
-            <label key={freq} className="radio-label">
+            <label key={freq} className="income-radio-label">
               <input
                 type="radio"
                 value={freq}
                 checked={frequency === freq}
                 onChange={() => setFrequency(freq)}
-                className="radio-input"
+                className="income-radio-input"
               />
               <span>{freq}</span>
             </label>
@@ -110,8 +111,8 @@ export default function IncomeLogger() {
         </div>
       </section>
 
-      <div className="button-group">
-        <button className="action-button" onClick={handleSubmit}>
+      <div className="income-button-group">
+        <button className="income-action-button" onClick={handleSubmit}>
           Add Income
         </button>
       </div>

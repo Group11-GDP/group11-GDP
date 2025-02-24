@@ -1,0 +1,132 @@
+/* General Page Styles */
+html, body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure full height minus bottom padding */
+  .profile-layout-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 2vh); /* Account for 2vh padding at the bottom */
+    margin-top: 1vh; /* Keep 1vh space from the top */
+  }
+  
+  /* Scrollable content area */
+  .profile-scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 2vh; /* Prevent content from touching the bottom */
+  }
+  
+  /* Main Profile Container */
+  .profile-container {
+    max-width: 600px;
+    margin: 1vh auto 0; /* 1vh from the top */
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .profile-header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Basic Info Section */
+  .profile-info {
+    background: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .profile-header-bar {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 6px;
+  }
+  
+  /* Input Fields */
+  .profile-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .profile-input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .profile-input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  
+  .profile-error-input {
+    border: 1px solid red;
+  }
+  
+  .profile-error-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Buttons */
+  .profile-button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .profile-action-button, .profile-create-button {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    margin: 0 5px;
+  }
+  
+  .profile-action-button {
+    background-color: #28a745;
+  }
+  
+  .profile-action-button:hover {
+    background-color: #218838;
+  }
+  
+  .profile-create-button {
+    background-color: #007bff;
+  }
+  
+  .profile-create-button:hover {
+    background-color: #0056b3;
+  }
+  

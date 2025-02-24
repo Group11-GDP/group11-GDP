@@ -1,0 +1,188 @@
+/* General Page Styles */
+html, body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Main Container */
+  .home-container {
+    max-width: 600px;
+    margin: 1vh auto 0; /* 1vh from the top */
+    margin-top: 10px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Ensure the page takes full height minus the navbar + 2vh */
+  .layout-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh- 4vh); /* Subtract navbar height + 2vh */
+    margin-top: 5vh; /* Keep 1vh space from top */
+  }
+  
+  /* Scrollable content area */
+  .scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: calc(62px + 2vh); /* Prevent content from being hidden under navbar */
+  }
+  
+  /* Header */
+  .welcome-header {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Expense Information Section */
+  .basic-info {
+    background: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .basic-header {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  /* Input Fields */
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .input-group textarea {
+    resize: none;
+    height: 80px;
+  }
+  
+  /* Date Picker */
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+  }
+  
+  /* Buttons */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .action-button {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    margin: 0 5px;
+  }
+  
+  .action-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Camera Overlay */
+  .camera-overlay {
+    position: fixed;
+    top: 1vh; /* 1vh from the top */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+  }
+  
+  .camera-header {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .close-button {
+    background: red;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .close-button:hover {
+    background: darkred;
+  }
+  
+  .camera-video {
+    width: 100%;
+    max-width: 90vh;
+    height: auto;
+    border-radius: 10px;
+    background: black;
+  }
+  
+  .camera-photo {
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+  
+  .camera-controls-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .camera-controls-bottom .action-button {
+    background: #28a745;
+  }
+  
+  .camera-controls-bottom .action-button:hover {
+    background: #218838;
+  }
+  

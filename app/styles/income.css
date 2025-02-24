@@ -1,0 +1,119 @@
+/* General Page Styles */
+html, body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+  .income-layout-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 2vh); /* Account for 2vh padding at the bottom */
+    margin-top: 5vh; /* Keep 1vh space from the top */
+  }
+  
+  /* Scrollable content area */
+  .income-scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 2vh; /* Prevent content from touching the bottom */
+  }
+  
+  /* Main Income Container */
+  .income-container {
+    max-width: 600px;
+    margin: 1vh auto 0; /* 1vh from the top */
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .income-header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Income Information Section */
+  .income-info, .income-regularity {
+    background: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .income-header-bar {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 6px;
+  }
+  
+  /* Input Fields */
+  .income-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .income-input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  
+  /* Radio Button Group */
+  .income-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .income-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .income-radio-input {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
+  /* Buttons */
+  .income-button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .income-action-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .income-action-button:hover {
+    background-color: #0056b3;
+  }
+  
