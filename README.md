@@ -44,11 +44,10 @@ http://127.0.0.1:5000
 
 ---
 
-## **Backend Setup (Flask)**
+## **Frontend Setup**
 ### **Install Dependencies**
 Ensure Node.js 20+ is installed, then run:
 
-cd frontend  
 npm install  
 npm run dev
 
