@@ -3,6 +3,7 @@ import HomeIcon from "~/icons/HomeIcon";
 import ExpenseIcon from "~/icons/ExpenseIcon";
 import ProfileIcon from "~/icons/ProfileIcon";
 import LogIcon from "~/icons/LogIcon";
+import SettingsIcon from "~/icons/SettingsIcon"
 import "./navBar.css";
 
 export default function NavBar() {
@@ -23,8 +24,8 @@ export default function NavBar() {
         <span>Income</span>
       </Link>
       <Link to="/" className={location.pathname === "/" ? "active" : ""}>
-        <ProfileIcon />
-        <span>Profile</span>
+        <SettingsIcon />
+        <span>Setting</span>
       </Link>
     </nav>
   );
